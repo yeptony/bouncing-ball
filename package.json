@@ -1,0 +1,15 @@
+{
+  "name": "bouncing-ball",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yeptony/bouncing-ball.git",
+  "author": "Yeptony <thomasgrosjean00@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch *.js"
+  },
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
