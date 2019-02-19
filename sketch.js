@@ -1,4 +1,4 @@
-const Ball = require(",/ball")
+const Ball = require("./ball")
 
 setup = () => {
   let cnv = createCanvas(windowWidth, windowHeight)
