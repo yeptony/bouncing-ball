@@ -1,6 +1,6 @@
 class Ball {
   constructor() {
-
+    
   }
 
   update() {
