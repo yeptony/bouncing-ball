@@ -15,6 +15,8 @@ const sketch = (p5) => {
   p5.draw = () => {
     p5.background(51)
     square.show(p5)
+    ball.update(p5)
+    ball.show(p5)
   }
 }
 
