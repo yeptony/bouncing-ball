@@ -8,7 +8,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "test": "jest",
+    "test": "jest --no-watchman",
     "test:watch": "jest --watch *.js"
   },
   "devDependencies": {
