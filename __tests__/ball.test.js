@@ -2,8 +2,8 @@ class Square {
   constructor(s) {
     this.s = s
     this.pos = {
-      x: 200,
-      y: 100
+      x: 20,
+      y: 10
     }
   }
 }
@@ -31,10 +31,10 @@ class Ball {
 
   bounceOnEdge() {
     if(
-      this.pos.y - this.r > square.pos.y + square.s ||
-      this.pos.y + this.r < square.pos.y 
+      this.pos.y + this.r > square.pos.y + square.s ||
+      this.pos.y - this.r < square.pos.y 
       ) {
-      this.pos.y *= -1
+      this.vel.y *= -1
     }
   }
 }
@@ -49,10 +49,10 @@ it('places ball in the square', () => {
 
 it('updates ball position', () => {
   const ball = new Ball()
-  ball.pos = { x: 5, y: 2 }
+  ball.pos = { x: 15, y: 20 }
   ball.vel = { x: 1, y: 2 }
   ball.update()
-  expect(ball.pos).toEqual({ x: 5+1, y: 2+2 })
+  expect(ball.pos).toEqual({ x: 15+1, y: 20+2 })
 })
 
 it('update ball gravity', () => {
@@ -63,17 +63,17 @@ it('update ball gravity', () => {
   expect(ball.vel).toEqual({ x: 1+0, y: 2+3 })
 })
 
-it.only('should bounce on square edges', () => {
+it('should bounce on square edges', () => {
   const ball = new Ball()
   ball.pos = { x: 20, y: 20 }
-  ball.vel = { x: 0, y: 50 }
-  ball.gravity = { x: 0, y: 20 }
+  ball.vel = { x: 0, y: 2 }
+  ball.gravity = { x: 0, y: 1 }
   let ballYPositions = []
   for (let i of [...Array(20).keys()]) {
     ballYPositions.push(ball.pos.y)
     ball.update()
   }
-  console.log(Math.max(...ballYPositions))
   expect(Math.max(...ballYPositions)).toBeLessThanOrEqual(square.pos.y + square.s - 10)
+  expect(Math.min(...ballYPositions)).toBeGreaterThanOrEqual(square.pos.y + 10)
 
 })
